@@ -11,7 +11,6 @@ class App {
     this.app.use(bodyParser.urlencoded({ extended: false }));
   }
 
-
   constructor() {
     this.app = express();
     this.config();
