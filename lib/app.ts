@@ -11,6 +11,30 @@ class App {
     this.app.use(bodyParser.urlencoded({ extended: false }));
   }
 
+  private routes(): void {
+    
+    const router = express.Router();
+
+    router.get('/', (request: express.Request, response: express.Response) => {
+
+      response.status(200).send({
+        message: 'Hello world! You\'ve hit the index page.'
+      })
+
+    });
+
+    router.post('/', (request: express.Request, response: express.Response) => {
+      
+      const data = request.body;
+
+      response.status(200).send(data);
+
+    });
+
+    this.app.use('/', router);
+
+  }
+
   constructor() {
     this.app = express();
     this.config();
